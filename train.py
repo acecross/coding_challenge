@@ -42,7 +42,7 @@ def train(cfg):
     opt = torch.optim.Adam(net.parameters())
     loss_list = []
     #loss function
-    lossf = torch.nn.CrossEntropyLoss()
+    lossf = torch.nn.MSELoss()
     #compute validation loss always with MSE to keep it reproducible
     lossf_v = torch.nn.MSELoss()
     #create training folder if it doesnt exist

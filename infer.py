@@ -22,23 +22,26 @@ def infer(cfg):
     data_folder = cfg.io.data_folder
     image_folder = cfg.io.image_folder
     csv_file = cfg.io.csv_file
-    device = cfg.params.device
+    #infering on cpu makes things easier for users
+    device = "cpu"
     torch.manual_seed(cfg.params.seed)
 
     net = Net(size=(cfg.params.image_resize,cfg.params.image_resize))
     #todo: push this into config
     #use backdoor right to check model
-    image = io.read_image(cwd+"/data/imgs/0a794c3a-d161-4cc8-98e5-b1bb3d481460.jpg").float()
+    file = "0a794c3a-d161-4cc8-98e5-b1bb3d481460.jpg"
+    image = io.read_image(os.path.join(cwd, data_folder, image_folder, file)).float()
     c, h, w = image.shape
     diff = abs(h - w)
     if h < w:
         image = F.pad(image, (0, 0, diff // 2, diff - diff // 2, 0, 0))
-    image = resize(image, (cfg.params.image_resize, cfg.params.image_resize))
+    image = resize(image, (cfg.params.image_resize, cfg.params.image_resize)).to(device)
     #todo: dataloader for eval
     net.eval()
     # no grad needed in evaluation
     checkpoint = torch.load(os.path.join(cwd,cfg.io.training_folder,cfg.io.training_name))
     net.load_state_dict(checkpoint['model_state_dict'])
+    net.to(device)
     with torch.no_grad():
         #create batch dim for one image
         print(net(image[None,:]))

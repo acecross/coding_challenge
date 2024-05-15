@@ -14,6 +14,8 @@ def look_at_df(df, image_folder, sort_by=None, ascending=True):
     print(df["perspective_score_hood"].mean(), df["perspective_score_backdoor_left"].mean(),  df["tot"].mean())
     print(df["perspective_score_hood"].std(), df["perspective_score_backdoor_left"].std(), df["tot"].std())
     print(df["perspective_score_hood"].max(), df["perspective_score_backdoor_left"].max(),  df["tot"].max())
+    print(df["perspective_score_hood"].min(), df["perspective_score_backdoor_left"].min(),  df["tot"].max())
+
     #no probability distribution possible can depict backdoor and hood at once
     #is more or less equally distributed and shouldnt introduce a strong bias
     print(df.head())

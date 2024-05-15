@@ -9,7 +9,7 @@ The dataset used for training consists of simulated and labeled images of car pa
 
 ## Training
 
-To train the model, run the `train.py` script. You can customize the hyperparameters such as batch size, learning rate, and number of epochs in the script. During training, the model's performance on the validation set is monitored to prevent overfitting.
+To train the model, run the `train.py` script. You can customize the hyperparameters such as batch size, learning rate, and number of epochs in the corresponding yaml file (cfg/train.yaml). Make sure to add your training data and adjust the paths in the yaml files accordingly. During training, the model's performance on the validation set is monitored to prevent overfitting.
 ## Evaluation
 
 After training, the trained model can be compared with the `compare_results.py` file.
