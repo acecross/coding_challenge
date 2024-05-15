@@ -1,0 +1,10 @@
+.cache
+__pycache__/
+.git
+.idea/
+*.ini
+data/
+output/
+trainings/
+
+
