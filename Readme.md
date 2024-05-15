@@ -21,10 +21,12 @@ Once trained and evaluated, the model can be used for inference on new images to
 
 Make sure you have the following dependencies installed:
 
+    hydra
+    PIL
     Python 3.x
     Pytorch
     NumPy
-    Matplotlib (for visualization)
+    Matplotlib
 
 License
 
