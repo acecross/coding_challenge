@@ -1,7 +1,7 @@
-# Car Parts Perspective Classifier
+# Car Parts Perspective Scorer
 ## Overview
 
-This repository contains code for training a Convolutional Neural Network (CNN) to classify the perspective of car parts. The model is trained to distinguish between different viewpoints (score_hood, score_backdoor_left) perspectives of car parts.
+This repository contains code for training a Convolutional Neural Network (CNN) to score the perspective of car parts. The model is trained to score different viewpoints (score_hood, score_backdoor_left) perspectives of car parts.
 
 ## Dataset
 
